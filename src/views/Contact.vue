@@ -1,54 +1,389 @@
-```vue
 <template>
+  <section class="contact">
+    <div class="container">
+      <div class="contact-header" data-aos="fade-up">
+        <h1>Get In Touch</h1>
+        <p>Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+      </div>
 
-<section class="contact">
+      <div class="contact-content">
+        <div class="contact-info" data-aos="fade-right">
+          <div class="info-card">
+            <i class="fas fa-envelope"></i>
+            <h3>Email Us</h3>
+             <a href="mailto:mohamedsharkawy078@gmail.com" target="_blank"> mohamedsharkawy078@gmail.com </a>
+          </div>
+          
+          
+<div class="info-card">
+  <i class="fas fa-map-marker-alt"></i>
+  <h3>Location</h3>
 
-<h1>Contact Us</h1>
+  <a 
+    href="https://www.google.com/maps?q=Cairo,Egypt" 
+    target="_blank"
+  >
+    Cairo, Egypt
+  </a>
 
-<form class="form">
+</div>
 
-<input type="text" placeholder="Your Name" />
 
-<input type="email" placeholder="Your Email" />
+          
+          <div class="info-card">
+            <i class="fab fa-github"></i>
+            <h3>GitHub</h3>
+            <a href="https://github.com/MohamedBendari" target="_blank">github.com/MohamedBendari</a>
+          </div>
+        </div>
 
-<textarea placeholder="Your Message"></textarea>
+        <form class="contact-form" @submit.prevent="submitForm" data-aos="fade-left">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input 
+              type="text" 
+              id="name"
+              v-model="form.name" 
+              placeholder="John Doe"
+              required
+              :disabled="isSubmitting"
+            >
+          </div>
 
-<button type="submit">Send Message</button>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input 
+              type="email" 
+              id="email"
+              v-model="form.email" 
+              placeholder="john@example.com"
+              required
+              :disabled="isSubmitting"
+            >
+          </div>
 
-</form>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input 
+              type="text" 
+              id="subject"
+              v-model="form.subject" 
+              placeholder="How can we help?"
+              required
+              :disabled="isSubmitting"
+            >
+          </div>
 
-</section>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea 
+              id="message"
+              v-model="form.message" 
+              placeholder="Tell us more about your inquiry..."
+              rows="5"
+              required
+              :disabled="isSubmitting"
+            ></textarea>
+          </div>
 
+          <button type="submit" class="submit-btn" :disabled="isSubmitting">
+            <span v-if="!isSubmitting">
+              <i class="fas fa-paper-plane"></i>
+              Send Message
+            </span>
+            <span v-else class="loading">
+              <i class="fas fa-spinner fa-spin"></i>
+              Sending...
+            </span>
+          </button>
+
+          <div v-if="submitStatus" class="status-message" :class="submitStatus.type">
+            <i :class="submitStatus.icon"></i>
+            {{ submitStatus.message }}
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
 </template>
 
-<style>
+<script setup>
+import { ref } from 'vue'
 
-.contact{
-padding:100px;
-text-align:center;
+const form = ref({
+  name: '',
+  email: '',
+  subject: '',
+  message: ''
+})
+
+const isSubmitting = ref(false)
+const submitStatus = ref(null)
+
+const submitForm = async () => {
+  isSubmitting.value = true
+  submitStatus.value = null
+
+  try {
+    const response = await fetch('http://localhost:3000/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(form.value)
+    })
+
+    const data = await response.json()
+
+    if (response.ok) {
+      submitStatus.value = {
+        type: 'success',
+        icon: 'fas fa-check-circle',
+        message: 'Message sent successfully! We\'ll get back to you soon.'
+      }
+      // Reset form
+      form.value = { name: '', email: '', subject: '', message: '' }
+    } else {
+      throw new Error(data.message || 'Something went wrong')
+    }
+  } catch (error) {
+    submitStatus.value = {
+      type: 'error',
+      icon: 'fas fa-exclamation-circle',
+      message: error.message || 'Failed to send message. Please try again.'
+    }
+  } finally {
+    isSubmitting.value = false
+  }
+}
+</script>
+
+<style scoped>
+.contact {
+  min-height: 100vh;
+  padding: 120px 20px 60px;
+  background: linear-gradient(135deg, #0b1c2c 0%, #16293d 100%);
 }
 
-.form{
-display:flex;
-flex-direction:column;
-width:400px;
-margin:auto;
-gap:15px;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-input, textarea{
-padding:10px;
-border-radius:5px;
-border:1px solid #ccc;
+.contact-header {
+  text-align: center;
+  margin-bottom: 60px;
 }
 
-button{
-padding:12px;
-background:#0077b6;
-color:white;
-border:none;
-border-radius:6px;
+.contact-header h1 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #ffffff, #42a5f5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
+.contact-header p {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.info-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(66, 165, 245, 0.3);
+}
+
+.info-card i {
+  font-size: 32px;
+  color: #42a5f5;
+  margin-bottom: 15px;
+}
+
+.info-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: white;
+}
+
+.info-card p,
+.info-card a {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.info-card a:hover {
+  color: #42a5f5;
+}
+
+.contact-form {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: white;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #42a5f5;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #0077b6, #0096c7);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 119, 182, 0.4);
+}
+
+.submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.status-message {
+  margin-top: 20px;
+  padding: 16px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.status-message.success {
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  color: #22c55e;
+}
+
+.status-message.error {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+  .contact-content {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-info {
+    order: 2;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .info-card {
+    flex: 1;
+    min-width: 250px;
+  }
+
+  .contact-form {
+    order: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-header h1 {
+    font-size: 36px;
+  }
+
+  .contact-info {
+    flex-direction: column;
+  }
+
+  .info-card {
+    min-width: 100%;
+  }
+
+  .contact-form {
+    padding: 25px;
+  }
+}
 </style>
-```
