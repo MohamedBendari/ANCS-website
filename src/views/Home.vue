@@ -1,386 +1,486 @@
+<script setup>
+import preview from "../assets/ancs-app.png"
+</script>
+
 <template>
-  <section class="hero">
-    <div class="hero-bg">
-      <div class="gradient-orb orb-1"></div>
-      <div class="gradient-orb orb-2"></div>
-    </div>
-    
-    <div class="hero-content">
-      <div class="logo-container" data-aos="fade-down">
-        <img src="../assets/ancs-logo.png" class="hero-logo" alt="ANCS Logo">
-        <div class="logo-glow"></div>
-      </div>
 
-      <h1 data-aos="fade-up" data-aos-delay="100">ANCS</h1>
-      
-      <h3 data-aos="fade-up" data-aos-delay="200">
-        Automated Network Configuration System
-      </h3>
+<!-- HERO -->
 
-      <p data-aos="fade-up" data-aos-delay="300">
-        Empowering network engineers with intelligent automation. 
-        Configure routers and switches instantly with our AI-powered platform.
-      </p>
+<section class="hero">
 
-      <div class="buttons" data-aos="fade-up" data-aos-delay="400">
-        <router-link to="/download" class="btn primary">
-          <i class="fas fa-download"></i>
-          Download Project
-        </router-link>
+  <div class="hero-content fade-up">
 
-        <router-link to="/about" class="btn secondary">
-          <i class="fas fa-arrow-right"></i>
-          Learn More
-        </router-link>
-      </div>
+    <img src="../assets/ancs-logo.png" class="hero-logo">
 
-      <div class="stats" data-aos="fade-up" data-aos-delay="500">
-        <div class="stat">
-          <span class="stat-number">10x</span>
-          <span class="stat-label">Faster Config</span>
-        </div>
-        <div class="stat">
-          <span class="stat-number">AI</span>
-          <span class="stat-label">Powered</span>
-        </div>
-        <div class="stat">
-          <span class="stat-number">24/7</span>
-          <span class="stat-label">Support</span>
-        </div>
-      </div>
+    <h1>ANCS</h1>
 
-      <div class="platforms" data-aos="fade-up" data-aos-delay="600">
-        <p>Available on</p>
-        <div class="icons">
-          <span><i class="fab fa-windows"></i> Windows</span>
-          <span><i class="fab fa-linux"></i> Linux</span>
-          <span><i class="fab fa-github"></i> GitHub</span>
-        </div>
-      </div>
+    <h3>Automated Network Configuration System</h3>
+
+    <p>
+      A modern platform that helps network engineers automate
+      router and switch configuration using intelligent tools.
+    </p>
+
+    <div class="buttons">
+
+      <router-link to="/download" class="btn primary">
+        Download
+      </router-link>
+
+      <router-link to="/about" class="btn secondary">
+        Learn More
+      </router-link>
+
     </div>
 
-    <div class="scroll-indicator">
-      <div class="mouse">
-        <div class="wheel"></div>
-      </div>
-      <p>Scroll to explore</p>
+  </div>
+
+</section>
+
+
+<!-- STATS -->
+
+<section class="stats">
+
+  <div class="stats-grid">
+
+    <div class="stat-card">
+      <h2>10x</h2>
+      <p>Faster Configuration</p>
     </div>
-  </section>
+
+    <div class="stat-card">
+      <h2>AI</h2>
+      <p>Powered Analysis</p>
+    </div>
+
+    <div class="stat-card">
+      <h2>24/7</h2>
+      <p>Automation</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- PLATFORMS -->
+
+<section class="platforms">
+
+  <h2>Works With</h2>
+
+  <div class="platform-grid">
+
+    <div class="platform">🪟 Windows</div>
+    <div class="platform">🐧 Linux</div>
+    <div class="platform">🌐 Cisco</div>
+    <div class="platform">⚙️ GNS3</div>
+    <div class="platform">🔐 SSH</div>
+    <div class="platform">📡 Telnet</div>
+
+  </div>
+
+</section>
+
+
+<!-- TECHNOLOGIES -->
+
+<section class="tech">
+
+  <h2>Built With Modern Technologies</h2>
+
+  <div class="tech-icons">
+
+    <div class="tech-card">Python</div>
+    <div class="tech-card">Vue.js</div>
+    <div class="tech-card">Netmiko</div>
+    <div class="tech-card">Machine Learning</div>
+    <div class="tech-card">PostgreSQL</div>
+
+  </div>
+
+</section>
+
+
+<!-- OVERVIEW -->
+
+<section class="overview">
+
+  <div class="container">
+
+    <h2>What is ANCS?</h2>
+
+    <p>
+      ANCS is a network automation platform designed to simplify
+      configuration management for routers and switches.
+      Engineers can generate configurations automatically,
+      detect errors before deployment, and manage multiple
+      network devices from one centralized interface.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- ADVANTAGES -->
+
+<section class="advantages">
+
+  <h2>Why Engineers Use ANCS</h2>
+
+  <div class="adv-grid">
+
+    <div class="adv-card">
+      <h3>Automation</h3>
+      <p>Automate repetitive network configuration tasks.</p>
+    </div>
+
+    <div class="adv-card">
+      <h3>AI Analysis</h3>
+      <p>Machine learning detects abnormal network behaviour.</p>
+    </div>
+
+    <div class="adv-card">
+      <h3>Secure</h3>
+      <p>Encrypted credentials and safe SSH/Telnet execution.</p>
+    </div>
+
+    <div class="adv-card">
+      <h3>Centralized</h3>
+      <p>Manage all devices from a single dashboard.</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- WORKFLOW -->
+
+<section class="workflow">
+
+  <h2>How ANCS Works</h2>
+
+  <div class="steps">
+
+    <div class="step">
+      <span>1</span>
+      <p>Discover Network Devices</p>
+    </div>
+
+    <div class="step">
+      <span>2</span>
+      <p>Create Configurations</p>
+    </div>
+
+    <div class="step">
+      <span>3</span>
+      <p>AI Validation</p>
+    </div>
+
+    <div class="step">
+      <span>4</span>
+      <p>Deploy Securely</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- APPLICATION PREVIEW -->
+
+<section class="preview">
+
+  <h2>Application Preview</h2>
+
+  <p>Experience the intuitive ANCS interface</p>
+
+  <div class="preview-box">
+
+    <img :src="preview" class="preview-img">
+
+  </div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta">
+
+  <h2>Start Automating Your Network Today</h2>
+
+  <router-link to="/download" class="btn primary">
+    Download ANCS
+  </router-link>
+
+</section>
+
 </template>
 
+
+
 <style scoped>
-.hero {
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background: #0b1c2c;
-  color: white;
-  position: relative;
-  overflow: hidden;
-  padding-top: 70px;
+
+/* GENERAL */
+
+section{
+  padding:120px 20px;
+  text-align:center;
 }
 
-.hero-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  pointer-events: none;
+h2{
+  font-size:42px;
+  margin-bottom:30px;
 }
 
-.gradient-orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.4;
+p{
+  color:#cbd5e1;
 }
 
-.orb-1 {
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, #0077b6, transparent);
-  top: -200px;
-  right: -200px;
-  animation: float 20s infinite ease-in-out;
+
+/* HERO */
+
+.hero{
+  min-height:100vh;
+  background:linear-gradient(180deg,#0b1c2c,#081520);
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 
-.orb-2 {
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, #42a5f5, transparent);
-  bottom: -100px;
-  left: -100px;
-  animation: float 15s infinite ease-in-out reverse;
+.hero-logo{
+  width:100px;
+  margin-bottom:20px;
 }
 
-@keyframes float {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(30px, -30px) scale(1.1); }
-  66% { transform: translate(-20px, 20px) scale(0.9); }
+.hero h1{
+  font-size:72px;
 }
 
-.hero-content {
-  max-width: 800px;
-  padding: 40px 20px;
-  position: relative;
-  z-index: 1;
+.buttons{
+  margin-top:30px;
+  display:flex;
+  gap:20px;
+  justify-content:center;
 }
 
-.logo-container {
-  position: relative;
-  display: inline-block;
-  margin-bottom: 30px;
+.btn{
+  padding:14px 30px;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.3s;
 }
 
-.hero-logo {
-  width: 120px;
-  height: 120px;
-  border-radius: 24px;
-  position: relative;
-  z-index: 2;
-  animation: pulse 2s infinite;
+.primary{
+  background:#0077b6;
+  color:white;
 }
 
-.logo-glow {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 150px;
-  height: 150px;
-  background: radial-gradient(circle, rgba(66, 165, 245, 0.4), transparent);
-  border-radius: 50%;
-  z-index: 1;
-  animation: glow 3s infinite;
+.primary:hover{
+  background:#0096c7;
+  transform:translateY(-3px);
 }
 
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+.secondary{
+  border:1px solid white;
+  color:white;
 }
 
-@keyframes glow {
-  0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
-  50% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+
+/* STATS */
+
+.stats{
+  background:#081520;
 }
 
-h1 {
-  font-size: 80px;
-  font-weight: 800;
-  margin-bottom: 10px;
-  background: linear-gradient(135deg, #ffffff, #42a5f5);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  letter-spacing: -2px;
+.stats-grid{
+  display:flex;
+  justify-content:center;
+  gap:60px;
+  flex-wrap:wrap;
 }
 
-h3 {
-  font-size: 24px;
-  margin-bottom: 20px;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.9);
+.stat-card{
+  background:#16293d;
+  padding:30px 40px;
+  border-radius:10px;
+  transition:0.3s;
 }
 
-p {
-  font-size: 18px;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.8);
-  max-width: 600px;
-  margin: 0 auto;
+.stat-card:hover{
+  transform:translateY(-6px) scale(1.05);
+  background:#1e3f5f;
 }
 
-.buttons {
-  margin-top: 40px;
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
+
+/* PLATFORMS */
+
+.platforms{
+  background:#102b44;
+  color:white;
 }
 
-.btn {
-  padding: 16px 32px;
-  border-radius: 12px;
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  transition: all 0.3s ease;
+.platform-grid{
+  display:flex;
+  gap:25px;
+  flex-wrap:wrap;
+  justify-content:center;
 }
 
-.btn.primary {
-  background: linear-gradient(135deg, #0077b6, #0096c7);
-  color: white;
-  box-shadow: 0 4px 15px rgba(0, 119, 182, 0.4);
+.platform{
+  background:#16293d;
+  padding:18px 30px;
+  border-radius:12px;
+  font-size:18px;
+  transition:0.3s;
 }
 
-.btn.primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(0, 119, 182, 0.5);
+.platform:hover{
+  transform:translateY(-6px);
+  background:#1e3f5f;
 }
 
-.btn.secondary {
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
+
+/* TECHNOLOGY */
+
+.tech{
+  background:#102b44;
+  color:white;
 }
 
-.btn.secondary:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.4);
-  transform: translateY(-3px);
+.tech-icons{
+  display:flex;
+  gap:20px;
+  justify-content:center;
+  flex-wrap:wrap;
 }
 
-.stats {
-  display: flex;
-  justify-content: center;
-  gap: 60px;
-  margin-top: 60px;
-  padding: 30px;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+.tech-card{
+  background:#16293d;
+  padding:20px 30px;
+  border-radius:10px;
+  transition:0.3s;
 }
 
-.stat {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
+.tech-card:hover{
+  transform:translateY(-5px);
+  background:#1d3a57;
 }
 
-.stat-number {
-  font-size: 36px;
-  font-weight: 700;
-  color: #42a5f5;
+
+/* OVERVIEW */
+
+.overview{
+  background:#0b1c2c;
+  color:white;
 }
 
-.stat-label {
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.7);
-  text-transform: uppercase;
-  letter-spacing: 1px;
+.overview p{
+  max-width:700px;
+  margin:auto;
+  line-height:1.7;
 }
 
-.platforms {
-  margin-top: 40px;
-  font-size: 14px;
-  opacity: 0.9;
+
+/* ADVANTAGES */
+
+.advantages{
+  background:#102b44;
+  color:white;
 }
 
-.platforms p {
-  margin-bottom: 15px;
-  font-size: 14px;
+.adv-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
 }
 
-.icons {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-  flex-wrap: wrap;
+.adv-card{
+  background:#16293d;
+  padding:30px;
+  border-radius:12px;
+  transition:0.3s;
 }
 
-.icons span {
-  background: rgba(16, 43, 68, 0.8);
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
+.adv-card:hover{
+  transform:translateY(-6px);
+  background:#1e3f5f;
 }
 
-.icons span:hover {
-  background: rgba(66, 165, 245, 0.2);
-  transform: translateY(-2px);
+
+/* WORKFLOW */
+
+.workflow{
+  background:#0b1c2c;
+  color:white;
 }
 
-.scroll-indicator {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  opacity: 0.7;
-  animation: bounce 2s infinite;
+.steps{
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  flex-wrap:wrap;
 }
 
-.mouse {
-  width: 26px;
-  height: 40px;
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  border-radius: 20px;
-  position: relative;
+.step{
+  background:#16293d;
+  padding:25px;
+  border-radius:10px;
+  width:200px;
+  transition:0.3s;
 }
 
-.wheel {
-  width: 4px;
-  height: 8px;
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 2px;
-  position: absolute;
-  top: 8px;
-  left: 50%;
-  transform: translateX(-50%);
-  animation: scroll 1.5s infinite;
+.step:hover{
+  transform:translateY(-6px);
 }
 
-@keyframes scroll {
-  0% { opacity: 1; top: 8px; }
-  100% { opacity: 0; top: 20px; }
+.step span{
+  font-size:30px;
+  font-weight:bold;
 }
 
-@keyframes bounce {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50% { transform: translateX(-50%) translateY(-10px); }
+
+/* PREVIEW */
+
+.preview{
+  background:#102b44;
+  color:white;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 48px;
-  }
-
-  h3 {
-    font-size: 18px;
-  }
-
-  .hero-logo {
-    width: 80px;
-    height: 80px;
-  }
-
-  .stats {
-    gap: 30px;
-    padding: 20px;
-  }
-
-  .stat-number {
-    font-size: 28px;
-  }
-
-  .buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .btn {
-    width: 100%;
-    max-width: 280px;
-    justify-content: center;
-  }
+.preview-box{
+  margin-top:40px;
+  background:#0b1c2c;
+  padding:20px;
+  border-radius:15px;
+  box-shadow:0 25px 50px rgba(0,0,0,0.6);
+  display:inline-block;
+  animation:float 6s ease-in-out infinite;
 }
+
+.preview-img{
+  width:900px;
+  max-width:100%;
+  border-radius:10px;
+}
+
+@keyframes float{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
+  100%{transform:translateY(0)}
+}
+
+
+/* CTA */
+
+.cta{
+  background:linear-gradient(180deg,#0b1c2c,#081520);
+  color:white;
+}
+
 </style>
