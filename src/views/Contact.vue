@@ -61,11 +61,11 @@
           <div class="form-group">
             <label for="purpose">Inquiry Purpose</label>
             <select id="purpose" v-model="form.purpose" required :disabled="isSubmitting">
-              <option disabled value="">Select purpose</option>
-              <option>Buy ANCS</option>
-              <option>Technical Support</option>
-              <option>General Question</option>
-              <option>Partnership</option>
+             <option disabled value="">Select purpose</option>
+             <option value="buy">Buy ANCS</option>
+             <option value="support">Technical Support</option>
+             <option value="question">General Question</option>
+             <option value="partnership">Partnership</option>
             </select>
           </div>
 
@@ -120,13 +120,13 @@ const submitForm = async () => {
   submitStatus.value = null
 
   try {
-    const response = await fetch('http://localhost:3000/api/contact', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(form.value)
-    })
+    const response = await fetch('http://127.0.0.1:8000/api/contact/', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(form.value)
+})
 
     const data = await response.json()
 
