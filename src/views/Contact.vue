@@ -1,3 +1,4 @@
+
 <template>
   <section class="contact">
     <div class="container">
@@ -120,7 +121,7 @@ const submitForm = async () => {
   submitStatus.value = null
 
   try {
-    const response = await fetch('http://127.0.0.1:8000/api/contact/', {
+    const response = await fetch('http://127.0.0.1:8000/api/messages/', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',

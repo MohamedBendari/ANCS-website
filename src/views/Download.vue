@@ -29,10 +29,16 @@
             </div>
 
             <div class="download-buttons">
-              <a href="#" class="btn primary">
+              <!-- ✅ زرار التحميل بعد التعديل -->
+              <a 
+                href="https://raw.githubusercontent.com/MOHAmED3467/ANCS-website/main/public/ANCS.exe" 
+                class="btn primary"
+                download
+              >
                 <i class="fab fa-windows"></i>
                 Download for Windows
               </a>
+
               <a href="#" class="btn secondary">
                 <i class="fab fa-linux"></i>
                 Download for Linux
@@ -46,7 +52,7 @@
           <h3>Other Download Options</h3>
           
           <div class="alt-grid">
-            <a href="https://github.com/MohamedBendari/ANCS" target="_blank" class="alt-card">
+            <a href="https://github.com/MOHAmED3467/ANCS-website" target="_blank" class="alt-card">
               <div class="alt-icon">
                 <i class="fab fa-github"></i>
               </div>
