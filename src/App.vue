@@ -306,14 +306,18 @@ body {
   top: 0; left: 0;
   z-index: 1000;
   background: rgba(11, 28, 44, 0.7);
-  /* backdrop-filter: blur(20px);   .... Blur  >> action problem in mobile
-  -webkit-backdrop-filter: blur(20px); */
-  backdrop-filter: none;
-/* Blur  >> No action problem in mobile */
-    -webkit-backdrop-filter: none; 
-     
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255,255,255,0.06);
   transition: all 0.4s ease;
+}
+/* 📱 موبايل */
+@media (max-width: 768px) {
+  .navbar {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: rgba(11, 28, 44, 1);
+  }
 }
 .navbar.scrolled {
   background: rgba(11, 28, 44, 0.97);
