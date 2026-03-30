@@ -306,8 +306,12 @@ body {
   top: 0; left: 0;
   z-index: 1000;
   background: rgba(11, 28, 44, 0.7);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  /* backdrop-filter: blur(20px);   .... Blur  >> action problem in mobile
+  -webkit-backdrop-filter: blur(20px); */
+  backdrop-filter: none;
+/* Blur  >> No action problem in mobile */
+    -webkit-backdrop-filter: none; 
+     
   border-bottom: 1px solid rgba(255,255,255,0.06);
   transition: all 0.4s ease;
 }
@@ -522,5 +526,13 @@ body {
   .footer { padding: 40px 24px 0; }
   .footer-container { flex-direction: column; gap: 32px; }
   .footer-links { gap: 32px; }
+}
+ 
+/* Blur  >> No action problem in mobile */
+@media (max-width: 768px) {
+  .modal-overlay {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
 }
 </style>
