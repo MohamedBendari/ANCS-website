@@ -305,16 +305,29 @@ body {
   position: fixed;
   top: 0; left: 0;
   z-index: 1000;
-  background: rgba(11, 28, 44, 0.7);
-  /* backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px); */
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+
+  /* ✨ Premium Glass بدون blur */
+  background: linear-gradient(
+    180deg,
+    rgba(11, 28, 44, 0.95),
+    rgba(11, 28, 44, 0.85)
+  );
+
+  border-bottom: 1px solid rgba(66, 165, 245, 0.15);
+
+  /* Glow خفيف */
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+
   transition: all 0.4s ease;
 }
 .navbar.scrolled {
-  background: rgba(11, 28, 44, 0.97);
-  box-shadow: 0 4px 30px rgba(0,0,0,0.4);
-  border-bottom-color: rgba(66, 165, 245, 0.15);
+  background: rgba(11, 28, 44, 1);
+
+  box-shadow: 
+    0 10px 40px rgba(0,0,0,0.6),
+    0 0 20px rgba(66,165,245,0.1);
+
+  border-bottom-color: rgba(66, 165, 245, 0.25);
 }
 .nav-container {
   max-width: 1400px;
