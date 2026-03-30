@@ -117,6 +117,7 @@ const isSubmitting = ref(false)
 const submitStatus = ref(null)
 
 const submitForm = async () => {
+  if (isSubmitting.value) return    // 👈 يمنع الضغط مرتين
   isSubmitting.value = true
   submitStatus.value = null
 
