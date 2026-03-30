@@ -524,4 +524,11 @@ body {
   .footer-container { flex-direction: column; gap: 32px; }
   .footer-links { gap: 32px; }
 }
+/* نقفل أي blur في الموقع كله على الموبايل */
+@media (max-width: 768px) {
+  * {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+}
 </style>
