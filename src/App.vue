@@ -306,14 +306,12 @@ body {
   top: 0; left: 0;
   z-index: 1000;
 
-  /* ✨ Premium Glass بدون blur */
-  background: linear-gradient(
-    180deg,
-    rgba(11, 28, 44, 0.95),
-    rgba(11, 28, 44, 0.85)
-  );
-
-  border-bottom: 1px solid rgba(66, 165, 245, 0.15);
+  background: #0b1c2c !important;   /* ❗ خليها solid */
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+   border-bottom: 1px solid rgba(66, 165, 245, 0.15);
+}
+ 
 
   /* Glow خفيف */
   box-shadow: 0 8px 30px rgba(0,0,0,0.4);
@@ -432,8 +430,8 @@ body {
 /* AUTH MODAL */
 .modal-overlay {
   position: fixed; inset: 0;
-  background: rgba(0,0,0,0.8); 
-  /* backdrop-filter: blur(8px); */
+ background: rgba(0,0,0,0.95);   /* غمق بس بدون blur */
+  backdrop-filter: none !important;
   display: flex; align-items: center; justify-content: center;
   z-index: 2000; padding: 20px;
 }
