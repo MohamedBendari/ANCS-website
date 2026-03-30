@@ -306,18 +306,10 @@ body {
   top: 0; left: 0;
   z-index: 1000;
   background: rgba(11, 28, 44, 0.7);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  /* backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px); */
   border-bottom: 1px solid rgba(255,255,255,0.06);
   transition: all 0.4s ease;
-}
-/* 📱 موبايل */
-@media (max-width: 768px) {
-  .navbar {
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    background: rgba(11, 28, 44, 1);
-  }
 }
 .navbar.scrolled {
   background: rgba(11, 28, 44, 0.97);
@@ -427,7 +419,8 @@ body {
 /* AUTH MODAL */
 .modal-overlay {
   position: fixed; inset: 0;
-  background: rgba(0,0,0,0.8); backdrop-filter: blur(8px);
+  background: rgba(0,0,0,0.8); 
+  /* backdrop-filter: blur(8px); */
   display: flex; align-items: center; justify-content: center;
   z-index: 2000; padding: 20px;
 }
@@ -530,13 +523,5 @@ body {
   .footer { padding: 40px 24px 0; }
   .footer-container { flex-direction: column; gap: 32px; }
   .footer-links { gap: 32px; }
-}
- 
-/* Blur  >> No action problem in mobile */
-@media (max-width: 768px) {
-  .modal-overlay {
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-  }
 }
 </style>
