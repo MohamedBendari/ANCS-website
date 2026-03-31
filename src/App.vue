@@ -523,4 +523,10 @@ body {
   .footer-container { flex-direction: column; gap: 32px; }
   .footer-links { gap: 32px; }
 }
+@media (max-width: 768px) {
+  .modal-overlay {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
 </style>
