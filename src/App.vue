@@ -60,7 +60,7 @@
           </template>
           <template v-else>
             <router-link to="/dashboard" @click="closeMenu">Dashboard</router-link>
-            <button @click="logout; closeMenu()">Logout</button>
+            <button @click="logout(); closeMenu()">Logout</button>
           </template>
           <router-link to="/download" class="mobile-download" @click="closeMenu">Download</router-link>
         </div>
@@ -305,27 +305,16 @@ body {
   position: fixed;
   top: 0; left: 0;
   z-index: 1000;
-
-  background: #0b1c2c !important;   /* ❗ خليها solid */
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-   border-bottom: 1px solid rgba(66, 165, 245, 0.15);
-}
- 
-
-  /* Glow خفيف */
-  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
-
+  background: rgba(11, 28, 44, 0.7);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
   transition: all 0.4s ease;
 }
 .navbar.scrolled {
-  background: rgba(11, 28, 44, 1);
-
-  box-shadow: 
-    0 10px 40px rgba(0,0,0,0.6),
-    0 0 20px rgba(66,165,245,0.1);
-
-  border-bottom-color: rgba(66, 165, 245, 0.25);
+  background: rgba(11, 28, 44, 0.97);
+  box-shadow: 0 4px 30px rgba(0,0,0,0.4);
+  border-bottom-color: rgba(66, 165, 245, 0.15);
 }
 .nav-container {
   max-width: 1400px;
@@ -430,8 +419,7 @@ body {
 /* AUTH MODAL */
 .modal-overlay {
   position: fixed; inset: 0;
- background: rgba(0,0,0,0.95);   /* غمق بس بدون blur */
-  backdrop-filter: none !important;
+  background: rgba(0,0,0,0.8); backdrop-filter: blur(8px);
   display: flex; align-items: center; justify-content: center;
   z-index: 2000; padding: 20px;
 }
@@ -534,12 +522,5 @@ body {
   .footer { padding: 40px 24px 0; }
   .footer-container { flex-direction: column; gap: 32px; }
   .footer-links { gap: 32px; }
-}
-/* نقفل أي blur في الموقع كله على الموبايل */
-@media (max-width: 768px) {
-  * {
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-  }
 }
 </style>
