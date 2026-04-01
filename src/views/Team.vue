@@ -73,7 +73,28 @@
             </div>
           </div>
         </div>
-
+         
+        <!-- Zyad -->
+        <div class="team-card">
+          <div class="card-image">
+            <div class="avatar" style="background: linear-gradient(135deg, #4caf50, #388e3c);">Y</div>
+            <div class="social-links">
+              <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+              <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+              <a href="#" target="_blank"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+          <div class="card-info">
+            <h3>Joo</h3>
+            <span class="role">Network Engineer</span>
+            <p>Network infrastructure expert and GNS3 integration specialist</p>
+            <div class="skills">
+              <span>Cisco</span>
+              <span>GNS3</span>
+              <span>Networking</span>
+            </div>
+          </div>
+        </div>
         <!-- Youssef (Logo Designer) -->
         <div class="team-card">
           <div class="card-image">
