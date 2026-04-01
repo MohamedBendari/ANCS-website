@@ -301,16 +301,7 @@ const logout = () => {
 </script>
 
 <style>
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  width: 100%;
-  font-family: 'Sora', 'Inter', -apple-system, sans-serif;
-  background: #0b1c2c;
-  color: white;
-  line-height: 1.6;
-}
-#app { width: 100%; min-height: 100vh; display: flex; flex-direction: column; }
+/* base.css handles reset, fonts, body, #app */
 
 /* NAVBAR */
 .navbar {
@@ -343,7 +334,7 @@ body {
 .logo span {
   font-size: 22px; font-weight: 800; letter-spacing: -0.5px;
   background: linear-gradient(135deg, #42a5f5, #0096c7);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
 }
 .nav-links { display: flex; align-items: center; gap: 4px; }
 .nav-links a {

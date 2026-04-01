@@ -307,7 +307,7 @@ const handleSignup = async () => {
 .brand h1 {
   font-size: 40px; font-weight: 900; letter-spacing: -1px;
   background: linear-gradient(135deg, #42a5f5, #0096c7);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
   margin-bottom: 8px;
 }
 .brand > p { font-size: 15px; color: rgba(255,255,255,0.45); }

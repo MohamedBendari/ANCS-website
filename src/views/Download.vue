@@ -185,6 +185,8 @@ const openAuth = (type) => emit('open-auth', type)
   background: linear-gradient(135deg, #ffffff, #42a5f5);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: #fff;
 }
 
 .section-header p {

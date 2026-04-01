@@ -395,19 +395,25 @@
 <script setup>
 import { ref, computed, onMounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
+import { useAuthStore } from '../stores/auth'
 
-const router = useRouter()
+const router    = useRouter()
+const authStore = useAuthStore()
 
 // ── State ──
-const token = localStorage.getItem('token')
+const token = authStore.token
 if (!token) router.push('/login')
 
 const theme = ref(localStorage.getItem('dash-theme') || 'dark')
-const lang = ref(localStorage.getItem('dash-lang') || 'en')
+const lang  = ref(localStorage.getItem('dash-lang')  || 'en')
+
+// ✅ username من الـ store مباشرة — reactive ومحفوظ صح
+const username     = computed(() => authStore.username || 'Admin')
+const userInitials = computed(() => username.value.slice(0, 2).toUpperCase())
 const sidebarCollapsed = ref(false)
-const activeSection = ref('messages')
-const search = ref('')
-const filterPurpose = ref('')
+const activeSection = ref("messages")
+const search = ref("")
+const filterPurpose = ref("")
 const messages = ref([])
 const next = ref(null)
 const previous = ref(null)
@@ -415,10 +421,7 @@ const currentPage = ref(1)
 const isLoadingData = ref(false)
 const selectedMessage = ref(null)
 const showNotifs = ref(false)
-const notifications = ref([{ id: 1, text: 'New message received' }])
-
-const username = ref(localStorage.getItem('dash-username') || 'Admin')
-const userInitials = computed(() => username.value.slice(0, 2).toUpperCase())
+const notifications = ref([{ id: 1, text: "New message received" }])
 
 // ── i18n ──
 const translations = {
@@ -486,7 +489,7 @@ const fetchMessages = async (url = 'http://127.0.0.1:8000/api/messages/') => {
   let finalUrl = url
   if (search.value) finalUrl += (finalUrl.includes('?') ? '&' : '?') + `search=${search.value}`
   try {
-    const res = await fetch(finalUrl, { headers: { Authorization: `Bearer ${token}` } })
+    const res = await fetch(finalUrl, { headers: { Authorization: `Bearer ${authStore.token}` } })
     if (res.status === 401) return logout()
     const data = await res.json()
     messages.value = data.results || []
@@ -521,7 +524,7 @@ const setLang  = (l) => { lang.value  = l; localStorage.setItem('dash-lang',  l)
 const toggleTheme = () => setTheme(theme.value === 'dark' ? 'light' : 'dark')
 const toggleLang  = () => setLang(lang.value === 'en' ? 'ar' : 'en')
 
-const logout = () => { localStorage.removeItem('token'); router.push('/') }
+const logout = () => { authStore.logout(); router.push('/') }
 
 onMounted(fetchMessages)
 </script>
@@ -601,7 +604,7 @@ onMounted(fetchMessages)
 .logo-text {
   font-size: 20px; font-weight: 800; letter-spacing: -0.5px;
   background: linear-gradient(135deg, #42a5f5, #0096c7);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
   white-space: nowrap;
 }
 

@@ -147,6 +147,8 @@ h1 {
   background: linear-gradient(135deg, #fff, #42a5f5);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: #fff;
 }
 
 .main-desc { 

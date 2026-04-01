@@ -97,6 +97,8 @@
   background: linear-gradient(135deg, #42a5f5 0%, #0077b6 50%, #42a5f5 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: #fff;
   position: relative;
   margin-bottom: 24px;
   animation: flicker 4s infinite;
@@ -111,6 +113,8 @@
   background: linear-gradient(135deg, #42a5f5, #0077b6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: #fff;
 }
 .error-code::before {
   animation: glitch-1 3s infinite;
