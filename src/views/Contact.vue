@@ -2,13 +2,13 @@
 <template>
   <section class="contact">
     <div class="container">
-      <div class="contact-header" data-aos="fade-up">
+      <div class="contact-header">
         <h1>Get In Touch</h1>
         <p>Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
       </div>
 
       <div class="contact-content">
-        <div class="contact-info" data-aos="fade-right">
+        <div class="contact-info">
           <div class="info-card">
             <i class="fas fa-envelope"></i>
             <h3>Email Us</h3>
@@ -34,7 +34,7 @@
           </div>
         </div>
 
-        <form class="contact-form" @submit.prevent="submitForm" data-aos="fade-left">
+        <form class="contact-form" @submit.prevent="submitForm">
           <div class="form-group">
             <label for="name">Your Name</label>
             <input 
@@ -117,7 +117,6 @@ const isSubmitting = ref(false)
 const submitStatus = ref(null)
 
 const submitForm = async () => {
-  if (isSubmitting.value) return    // 👈 يمنع الضغط مرتين
   isSubmitting.value = true
   submitStatus.value = null
 

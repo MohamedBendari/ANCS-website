@@ -1,7 +1,12 @@
+<script setup>
+const emit = defineEmits(['open-auth'])
+const openAuth = (type) => emit('open-auth', type)
+</script>
+
 <template>
   <section class="download">
     <div class="container">
-      <div class="section-header" data-aos="fade-up">
+      <div class="section-header">
         <span class="subtitle">Get Started</span>
         <h1>Download ANCS</h1>
         <p>Choose your platform and start automating your network configuration today</p>
@@ -9,7 +14,7 @@
 
       <div class="download-content">
         <!-- Main Download Card -->
-        <div class="main-download" data-aos="fade-up" data-aos-delay="100">
+        <div class="main-download">
           <div class="download-card featured">
             <div class="card-badge">Latest Release</div>
             <div class="platform-icon">
@@ -48,7 +53,7 @@
         </div>
 
         <!-- Alternative Downloads -->
-        <div class="alt-downloads" data-aos="fade-up" data-aos-delay="200">
+        <div class="alt-downloads">
           <h3>Other Download Options</h3>
           
           <div class="alt-grid">
@@ -88,7 +93,7 @@
         </div>
 
         <!-- Installation Steps -->
-        <div class="installation-guide" data-aos="fade-up" data-aos-delay="300">
+        <div class="installation-guide">
           <h3>Quick Installation Guide</h3>
           
           <div class="steps">
@@ -127,7 +132,7 @@
         </div>
 
         <!-- Support -->
-        <div class="support-section" data-aos="fade-up" data-aos-delay="400">
+        <div class="support-section">
           <div class="support-card">
             <i class="fas fa-headset"></i>
             <h3>Need Help?</h3>

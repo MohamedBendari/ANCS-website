@@ -1,7 +1,7 @@
 <template>
   <section class="features">
     <div class="container">
-      <div class="section-header" data-aos="fade-up">
+      <div class="section-header">
         <span class="subtitle">What We Offer</span>
         <h1>Powerful Features</h1>
         <p>Everything you need to manage and configure your network infrastructure efficiently</p>
@@ -9,7 +9,7 @@
 
       <div class="features-grid">
         <!-- Device Management -->
-        <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="feature-card">
           <div class="card-icon">
             <i class="fas fa-server"></i>
           </div>
@@ -23,7 +23,7 @@
         </div>
 
         <!-- Configuration Management -->
-        <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="feature-card">
           <div class="card-icon blue">
             <i class="fas fa-cogs"></i>
           </div>
@@ -39,7 +39,7 @@
         </div>
 
         <!-- AI Assistant -->
-        <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="feature-card">
           <div class="card-icon purple">
             <i class="fas fa-brain"></i>
           </div>
@@ -53,7 +53,7 @@
         </div>
 
         <!-- Security & Monitoring -->
-        <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="feature-card">
           <div class="card-icon green">
             <i class="fas fa-shield-alt"></i>
           </div>
@@ -67,7 +67,7 @@
         </div>
 
         <!-- Automation -->
-        <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
+        <div class="feature-card">
           <div class="card-icon orange">
             <i class="fas fa-robot"></i>
           </div>
@@ -81,7 +81,7 @@
         </div>
 
         <!-- AI Log Analysis -->
-        <div class="feature-card" data-aos="fade-up" data-aos-delay="600">
+        <div class="feature-card">
           <div class="card-icon red">
             <i class="fas fa-chart-line"></i>
           </div>

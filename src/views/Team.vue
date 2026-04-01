@@ -1,7 +1,7 @@
 <template>
   <section class="team">
     <div class="container">
-      <div class="section-header" data-aos="fade-up">
+      <div class="section-header">
         <span class="subtitle">Our Team</span>
         <h1>Meet The Developers</h1>
         <p>The talented people behind ANCS who made it all possible</p>
@@ -9,7 +9,7 @@
 
       <div class="team-grid">
         <!-- Mohamed Bendary -->
-        <div class="team-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="team-card">
           <div class="card-image">
             <div class="avatar">MB</div>
             <div class="social-links">
@@ -31,7 +31,7 @@
         </div>
 
         <!-- Mohamed Ehab -->
-        <div class="team-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="team-card">
           <div class="card-image">
             <div class="avatar" style="background: linear-gradient(135deg, #e91e63, #c2185b);">ME</div>
             <div class="social-links">
@@ -53,7 +53,7 @@
         </div>
 
         <!-- Zyad -->
-        <div class="team-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="team-card">
           <div class="card-image">
             <div class="avatar" style="background: linear-gradient(135deg, #4caf50, #388e3c);">Z</div>
             <div class="social-links">
@@ -75,7 +75,7 @@
         </div>
 
         <!-- Youssef (Logo Designer) -->
-        <div class="team-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="team-card">
           <div class="card-image">
             <div class="avatar" style="background: linear-gradient(135deg, #ff9800, #f57c00);">Y</div>
             <div class="social-links">

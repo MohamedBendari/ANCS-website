@@ -133,9 +133,8 @@ p { color: #cbd5e1; }
 
 .hero {
   min-height: 100vh;
+  padding-top: 72px;
   background: linear-gradient(180deg, #0b1c2c, #081520);
-  opacity: 1 !important;
-  filter: none !important;
   color: white;
   display: flex;
   justify-content: center;
