@@ -1,6 +1,5 @@
 import './assets/main.css'
-
-import { createApp } from 'vue'
+import { createApp, nextTick } from 'vue'          // ← أضف nextTick هنا
 import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
@@ -49,8 +48,16 @@ app.use(pinia)
 app.use(router)
 app.use(vuetify)
 
-// مهم: Force dark theme بعد الـ mount
+// Mount the app
 app.mount('#app')
 
-// Force apply dark theme (حل شائع لمشاكل الـ production)
-document.documentElement.classList.add('v-theme--dark')
+// Force dark theme for Vuetify in production
+nextTick(() => {
+  document.documentElement.classList.add('v-theme--dark')
+  document.body.classList.add('v-theme--dark')
+
+  const vApp = document.querySelector('.v-application')
+  if (vApp) {
+    vApp.classList.add('v-theme--dark')
+  }
+})
