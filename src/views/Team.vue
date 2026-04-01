@@ -74,7 +74,7 @@
           </div>
         </div>
          
-        <!-- Zyad -->
+        <!-- Youssef Mar-->
         <div class="team-card">
           <div class="card-image">
             <div class="avatar" style="background: linear-gradient(135deg, #4caf50, #388e3c);">Y</div>
@@ -85,7 +85,7 @@
             </div>
           </div>
           <div class="card-info">
-            <h3>Joo</h3>
+            <h3>Joo Mar</h3>
             <span class="role">Network Engineer</span>
             <p>Network infrastructure expert and GNS3 integration specialist</p>
             <div class="skills">
