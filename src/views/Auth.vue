@@ -187,8 +187,10 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
+import { useAuthStore } from '../stores/auth'
 
-const router = useRouter()
+const router    = useRouter()
+const authStore = useAuthStore()
 const mode = ref('login')
 const focused = ref('')
 const showPass = ref(false)
@@ -237,7 +239,8 @@ const handleLogin = async () => {
     })
     const data = await res.json()
     if (!res.ok) throw new Error(data.detail || 'Invalid credentials')
-    localStorage.setItem('token', data.access)
+    // ✅ store يحفظ الـ token والـ username بشكل reactive
+    authStore.loginSuccess(data.access, loginData.value.username)
     router.push('/dashboard')
   } catch (err) {
     serverError.value = err.message || 'Login failed. Please try again.'

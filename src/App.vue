@@ -2,7 +2,7 @@
   <div id="app">
 
     <!-- ===== NAVBAR ===== -->
-    <nav class="navbar" :class="{ 'scrolled': isScrolled }">
+    <nav v-if="showLayout" class="navbar" :class="{ 'scrolled': isScrolled }">
       <div class="nav-container">
 
         <!-- Logo -->
@@ -60,7 +60,7 @@
           </template>
           <template v-else>
             <router-link to="/dashboard" @click="closeMenu">Dashboard</router-link>
-            <button @click="logout(); closeMenu()">Logout</button>
+            <button @click="logout; closeMenu()">Logout</button>
           </template>
           <router-link to="/download" class="mobile-download" @click="closeMenu">Download</router-link>
         </div>
@@ -69,7 +69,7 @@
 
     <!-- ===== AUTH MODAL ===== -->
     <Transition name="modal-fade">
-      <div v-if="showAuthModal" class="modal-overlay" @click.self="closeAuth">
+      <div v-if="showLayout && showAuthModal" class="modal-overlay" @click.self="closeAuth">
         <div class="auth-modal">
 
           <button class="close-btn" @click="closeAuth" aria-label="Close">
@@ -168,7 +168,7 @@
     </router-view>
 
     <!-- ===== FOOTER ===== -->
-    <footer class="footer">
+    <footer v-if="showLayout" class="footer">
       <div class="footer-container">
         <div class="footer-brand">
           <img src="./assets/ancs-logo.png" alt="ANCS Logo">
@@ -204,26 +204,35 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted, computed } from 'vue'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
+import { useAuthStore } from './stores/auth'
 
-const router = useRouter()
+const router    = useRouter()
+const route     = useRoute()
+const authStore = useAuthStore()
 
+// ── Layout visibility ──
+const showLayout = computed(() => !route.meta.hideLayout)
+
+// ── Navbar ──
 const isMenuOpen = ref(false)
 const isScrolled = ref(false)
 const toggleMenu = () => { isMenuOpen.value = !isMenuOpen.value }
-const closeMenu = () => { isMenuOpen.value = false }
+const closeMenu  = () => { isMenuOpen.value = false }
 const handleScroll = () => { isScrolled.value = window.scrollY > 50 }
-onMounted(() => window.addEventListener('scroll', handleScroll))
+onMounted(()  => window.addEventListener('scroll', handleScroll))
 onUnmounted(() => window.removeEventListener('scroll', handleScroll))
 
+// ── Auth state — reactive via Pinia ──
+const isLoggedIn = computed(() => authStore.isLoggedIn)
+
 const showAuthModal = ref(false)
-const isLogin = ref(true)
-const showPassword = ref(false)
-const isLoading = ref(false)
-const authStatus = ref(null)
-const loginData = ref({ username: '', password: '' })
-const signupData = ref({ name: '', email: '', password: '' })
-const isLoggedIn = computed(() => !!localStorage.getItem('token'))
+const isLogin       = ref(true)
+const showPassword  = ref(false)
+const isLoading     = ref(false)
+const authStatus    = ref(null)
+const loginData     = ref({ username: '', password: '' })
+const signupData    = ref({ name: '', email: '', password: '' })
 
 const openAuth = (type) => {
   isLogin.value = type === 'login'
@@ -249,11 +258,15 @@ const handleLogin = async () => {
     const res = await fetch('http://127.0.0.1:8000/api/login/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username: loginData.value.username, password: loginData.value.password })
+      body: JSON.stringify({
+        username: loginData.value.username,
+        password: loginData.value.password
+      })
     })
     const data = await res.json()
     if (!res.ok) throw new Error(data.detail || 'Invalid credentials')
-    localStorage.setItem('token', data.access)
+    // ✅ store يحفظ الـ token والـ username ويعمل reactivity تلقائياً
+    authStore.loginSuccess(data.access, loginData.value.username)
     closeAuth()
     router.push('/dashboard')
   } catch (err) {
@@ -282,7 +295,7 @@ const handleSignup = async () => {
 }
 
 const logout = () => {
-  localStorage.removeItem('token')
+  authStore.logout()
   router.push('/')
 }
 </script>
@@ -306,8 +319,8 @@ body {
   top: 0; left: 0;
   z-index: 1000;
   background: rgba(11, 28, 44, 0.7);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255,255,255,0.06);
   transition: all 0.4s ease;
 }
@@ -522,11 +535,5 @@ body {
   .footer { padding: 40px 24px 0; }
   .footer-container { flex-direction: column; gap: 32px; }
   .footer-links { gap: 32px; }
-}
-@media (max-width: 768px) {
-  .modal-overlay {
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-  }
 }
 </style>

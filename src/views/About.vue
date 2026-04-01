@@ -112,7 +112,7 @@
 /* Main Background & Typography */
 .about-page {
   min-height: 100vh;
-  padding: 100px 20px;
+  padding: 120px 20px 80px;
   background: linear-gradient(135deg, #0b1c2c 0%, #16293d 100%);
   color: #ffffff;
   font-family: 'Inter', sans-serif;
